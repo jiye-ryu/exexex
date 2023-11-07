@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>퀴즈</title>
+	<style type="text/css">
+		body {margin: 0;}
+		section {border-width: 1366px; height: 984px; margin: auto;}
+		.space1{width: 1250px; height: 350px; margin: auto;  position: absolute; top: 58%; left: 50%; transform: translate(-50%,0%);}
+		.answer{width: 1250px; height: 40px; background-color: white; border-radius: 50px; margin-top: 10px; padding-top: 20px; text-align: center; border-style: solid;}
+		#proBar {width: 1250px; height: 50px; margin: auto; display: flex; flex-wrap: wrap;}
+		#stick {width: 1180px; height: 10px; background-color: gray; border-radius: 5px; margin-left: -px;}
+		#ok{width: 1250px; height: 40px; background-color: #242625; margin: auto; border-radius: 50px; position: absolute; top: 90%; left: 50%; transform: translate(-50%,0%); text-align: center; color: white; padding-top: 20px;} 
+		div {margin: auto; text-align: center;}
+		#t1 {color: #586DED; font-size: 16px; font-weight: 700; margin-top: 60px;}
+		#t2 {font-size: 22px; margin-top: 10px; font-weight: 600;}
+		#t3 {width: 400px; height: 280px; background-color: black; border-radius: 20px; margin-top: 30px;}
+		#page {text-align: left; margin-left: 0;}
+	</style>
+</head>
+<body>
+	<section>
+		<div id="proBar">
+			<div id="page">1/4</div>
+			<div id="stick"></div>
+		</div>
+		<div id="question">
+			<div id="t1">배경지식 기억하기</div>
+			<div id="t2">다큐의 주요 배경은 어디인가요?</div>
+			<div id="t3"></div>
+		</div>
+		<div class="space1">
+		<div class="answer" id="a1">답1</div>
+		<div class="answer" id="a2">답2</div>
+		<div class="answer" id="a3">답3</div>
+		<div class="answer" id="a4">답4</div>
+		</div>
+		<div id="ok">확인</div>
+	</section>
+
+<script>
+  // "answer" 요소들을 선택합니다.
+  const answerElements = document.querySelectorAll('.answer');
+
+  // 각 "answer" 요소를 클릭할 때 실행할 함수를 정의합니다.
+  function handleAnswerClick(event) {
+    // 클릭한 "answer" 요소에 #586DED 색상을 지정합니다.
+    event.target.style.backgroundColor = "#586DED";
+
+    // 클릭한 "answer" 요소를 제외한 나머지 "answer" 요소들의 배경색을 초기화합니다.
+    answerElements.forEach((answer) => {
+      if (answer !== event.target) {
+        answer.style.backgroundColor = "none";
+      }
+    });
+  }
+
+  // 각 "answer" 요소에 클릭 이벤트 리스너를 추가합니다.
+  answerElements.forEach((answer) => {
+    answer.addEventListener('click', handleAnswerClick);
+  });
+</script>
+</body>
+</html>

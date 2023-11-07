@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>퀴즈</title>
+	<style type="text/css">
+		body {margin: 0;}
+		section {border-width: 1366px; height: 984px; margin: auto; background-color: #f4f4f4;}
+		.space1{width: 1250px; height: 350px; margin: auto;  position: absolute; top: 60%; left: 50%; transform: translate(-50%,0%);}
+		.answer{width: 1250px; height: 40px; background-color: white; border-radius: 50px; margin-top: 10px; padding-top: 20px; text-align: center; border-style: solid; z-index: 5;}
+		#proBar {width: 1250px; height: 50px; margin: auto; display: flex; flex-wrap: wrap;}
+		#stick {width: 1180px; height: 10px; background-color: gray; border-radius: 5px; margin-left: -px;}
+		#prog {width: 295px; height: 10px; border-radius: 50px; margin: 0; padding: 0; background-color: #586DED;}
+		#ok{width: 1250px; height: 40px; background-color: #242625; margin: auto; border-radius: 50px; border-style: none; position: absolute; top: 60%; left: 50%; transform: translate(-50%,0%); text-align: center; color: white; padding-top: 20px;} 
+		div {margin: auto; text-align: center;}
+		#t1 {color: #586DED; font-size: 16px; font-weight: 700; margin-top: 60px;}
+		#t2 {font-size: 24px; margin-top: 10px; font-weight: 600;}
+		#t3 {width: 500px; height: 350px; background-color: black; border-radius: 20px; margin-top: 40px;}
+		#page {text-align: left; margin-left: 0;}
+		#info {width: 1366px; height: 215px; z-index: 10; background-color: white; transform: translate(0%,-100%); position: absolute; top: 984px; display: flex; flex-wrap: wrap; display:none; }
+		#yon { text-align: left; font-size: 28px; font-weight: 600; margin: 0; padding: 0; margin-left: 10px;}
+		#why {text-align: left; font-size: 20px; margin-left: 65px; font-weight: 400; margin-top: 20px;}
+		#img1 {width: 30px; height: 30px; margin: 0; padding: 0; background-size: cover; background-position: center;}
+		.info1 {width: 1240px; margin: 0; padding: 0; margin-left: 65px; margin-top: 22px; display: flex; flex-wrap: wrap;}
+		#bbb {width: 1366px; height: 984px; background-color: black; opacity: 25%; position: absolute; z-index: 8; top: 0; left: 0; display: none;}
+
+	</style>
+</head>
+<body>
+	<section>
+		<div id="proBar">
+			<div id="page">1/4</div>
+			<div id="stick"><div id="prog"></div></div>
+		</div>
+		<div id="question">
+			<div id="t1">배경지식 기억하기</div>
+			<div id="t2">다큐의 주요 배경은 어디인가요?</div>
+			<div id="t3"></div>
+		</div>
+		<div class="space1">
+		<div class="answer" id="a1">답1</div>
+		<div class="answer" id="a2">답2</div>
+		<div class="answer" id="a3">답3</div>
+		<div class="answer" id="a4">답4</div>
+		</div>
+		<div id="bbb"></div>
+		<div id="info">
+			<div class="info1">
+			<div id="img1"></div>
+			<div id="yon">맞았어요</div>
+			</div>
+			<div id="why">정답은 '시빌 워'에요.</div>
+			<div class="answer" id="ok">다음</div>
+	</section>
+
+ 	<script>
+ 	a3.onclick = function(){
+ 		this.style.backgroundColor = "#242625";
+ 		this.style.color = "white";
+ 		info.style.display = "block";
+ 		bbb.style.display = "block";
+ 				document.getElementById("yon").innerHTML = "맞았어요!";
+ 				yon.style.color = "#586DED";
+ 				document.getElementById("img1").style.backgroundImage = "url(yes.png)";
+ 				document.getElementById("why").innerHTML = "정답은 ㅇㅇ이에요.";
+ 				document.getElementById("ok").style.backgroundColor = "#586DED";
+ 				a3 = false;
+ 	}
+ 	
+ 	let wrongA = [a1,a2,a4];
+
+ 	for(var i=0; i<3; i++){
+ 		wrongA[i].onclick = function(){
+ 			this.style.backgroundColor = "#242625";
+ 			this.style.color = "white";
+ 				info.style.display = "block";
+ 				bbb.style.display = "block";
+ 				document.getElementById("yon").innerHTML = "틀렸어요!";
+ 				yon.style.color = "#FF8761";
+ 				document.getElementById("img1").style.backgroundImage = "url(no.png)";
+ 				document.getElementById("why").innerHTML = "왜냐하면 틀렸기 때문이에요.";
+ 				document.getElementById("ok").style.backgroundColor = "#FF8761";
+ 				wrongA[i] = false;
+
+ 			}
+ 			
+ 		
+ 	}
+
+ 	bbb.onclick = function(){
+ 		this.style.display = "none";
+ 		info.style.display = "none";
+ 		location.reload();
+ 	}
+
+ 	</script>
+</body>
+</html>
